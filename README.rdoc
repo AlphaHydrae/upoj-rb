@@ -1,0 +1,9 @@
+= upoj-rb
+
+Ruby scripting utilities.
+
+== Copyright
+
+Copyright (c) 2011 AlphaHydrae. See LICENSE.txt for
+further details.
+
