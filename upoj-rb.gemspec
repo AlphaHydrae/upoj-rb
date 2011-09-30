@@ -31,7 +31,8 @@ Gem::Specification.new do |s|
     "lib/upoj-rb/opts.rb",
     "spec/blank_spec.rb",
     "spec/ext_spec.rb",
-    "spec/helper.rb"
+    "spec/helper.rb",
+    "upoj-rb.gemspec"
   ]
   s.homepage = "http://github.com/AlphaHydrae/upoj-rb"
   s.licenses = ["MIT"]
