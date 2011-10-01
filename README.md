@@ -42,6 +42,39 @@ Then require and use it:
     h['b']    #=> 'value b'
     h[:b]     #=> 'value b'
 
+* __active_support/core_ext/object/blank__
+
+  `#blank?` and `#present?` methods to easily check
+  for empty strings, arrays, hashes, etc.
+
+    ''.present?    #=> false
+    ''.blank?      #=> true
+    [].blank?      #=> true
+    {}.blank?      #=> true
+    nil.blank?     #=> true
+
+* __active_support/core_ext/object/try__
+
+  Allows to attempt to call a method on an object
+  and not throw an error if it's nil.
+
+    s = 'FUBAR'
+    s.try :downcase   #=> 'fubar'
+    s = nil
+    s.try :downcase   #=> nil
+
+* __active_support/core_ext/string/inflections__
+
+  Useful string transformations.
+
+    'Module1::Module2::MyClass'.demodulize   #=> 'MyClass'
+
+* __paint__
+
+  Command-line color output.
+
+    Paint['fubar', :green]
+    Paint['fubar', :bold, :underline]
 
 ## Copyright
 
