@@ -67,6 +67,7 @@ A hash can be given for the banner.
     }
 
     opts = Upoj::Opts.new :banner => banner
+    opts.on('-f', '--fubar', 'do something awful')
     
     # the generated banner will look like this,
     # with USAGE, OPTIONS and my_script in bold
@@ -77,6 +78,7 @@ A hash can be given for the banner.
       my_script [OPTION]... ARG1 ARG2
 
     OPTIONS
+      -f, --fubar                      do something awful
 
 ### Help and Usage
 
