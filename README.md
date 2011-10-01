@@ -10,16 +10,16 @@ OptionParser.
 
 You can install upoj-rb on the command line:
 
-   gem install upoj-rb
+    gem install upoj-rb
 
 Or add it to your project's Gemfile:
 
-   gem 'upoj-rb'
+    gem 'upoj-rb'
 
 Then require and use it:
 
-   require 'upoj-rb'
-   puts Upoj::VERSION
+    require 'upoj-rb'
+    puts Upoj::VERSION
 
 ## Copyright
 
