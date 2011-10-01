@@ -17,7 +17,7 @@ module Upoj
     def initialize *args
       options = args.extract_options!
 
-      @funnel = options[:funnel] || {}
+      @funnel = options[:funnel] || HashWithIndifferentAccess.new
       @footer = options[:footer]
       @examples = options[:examples]
 
