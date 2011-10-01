@@ -21,6 +21,48 @@ Then require and use it:
     require 'upoj-rb'
     puts Upoj::VERSION
 
+## Improved Option Parser
+
+Customized version of ruby's [OptionParser](http://ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html).
+
+### Funnel
+
+By default, all options that are defined without a block can
+be retrieved with `#funnel`.
+
+    # define your options
+    opts = Upoj::Opts.new
+    opts.on('--option'){ # do whatever }
+    opts.on('-f', '--fubar')
+    opts.on('-v', '--value VALUE')
+
+    # parse
+    ARGV          #=> [ '--option', '-f', '--value', '43' ]
+    opts.parse!
+
+    # retrieve options in funnel by default
+    opts.funnel   #=> { 'fubar' => true, 'value' => 43 }
+
+### Structured Banner
+
+A hash can be given for the banner.
+
+    banner = {
+      :usage => '[OPTION]... ARG1 ARG2',
+      :description => 'does stuff with ARG1 and ARG2.'
+    }
+
+    opts = Upoj::Opts.new :banner => banner
+    
+    # the generated banner will look like this,
+    # with USAGE, OPTIONS and my_script in bold
+    my_script does stuff with ARG1 and ARG2.
+
+    **USAGE**
+      my_script [OPTION]... ARG1 ARG2
+
+    OPTIONS
+
 ## Included Dependencies
 
 * __active_support/core_ext/array/extract_options__
