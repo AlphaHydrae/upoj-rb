@@ -27,6 +27,15 @@ Then require and use it:
 
   Extraction of hash options from the end of an array.
 
+    # extract options
+    args = [ 'a', 'b', { 'c' => 'd', 'e' => 'f' } ]
+    options = args.extract_options!   #=> { 'c' => 'd', 'e' => 'f' }
+
+    # returns an empty hash if there are no options
+    args = [ 'a', 'b', 'c' ]
+    options = args.extract_options!   #=> {}
+
+    # can be used to easily pass an optional hash to methods
     def method *args
       options = args.extract_options!
     end
