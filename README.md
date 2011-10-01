@@ -43,6 +43,22 @@ be retrieved with `#funnel`.
     # retrieve options in funnel by default
     opts.funnel   #=> { 'fubar' => true, 'value' => 43 }
 
+The funnel can be given at construction with initial values.
+
+    # starting funnel
+    funnel = { 'foo' => false }
+
+    # define your options
+    opts = Upoj::Opts.new
+    opts.on('-f', '--fubar')
+
+    # parse
+    ARGV          #=> [ '--fubar' ]
+    opts.parse!
+
+    # retrieve the funnel with initial and new options
+    opts.funnel   #=> { 'foo' => false, '--fubar' => true }
+
 ### Structured Banner
 
 A hash can be given for the banner.
@@ -56,12 +72,26 @@ A hash can be given for the banner.
     
     # the generated banner will look like this,
     # with USAGE, OPTIONS and my_script in bold
+
     my_script does stuff with ARG1 and ARG2.
 
-    **USAGE**
+    USAGE
       my_script [OPTION]... ARG1 ARG2
 
     OPTIONS
+
+### Help and Usage
+
+Automatically register `-h`, `--help`, `-u` and `--usage` switches
+with `#help!` and `#usage!`.
+
+    opts = Upoj::Opts.new
+
+    # you can replace this:
+    opts.on('-u', '--usage', 'show this help and exit'){ puts opts; exit 0 }
+
+    # by this:
+    opts.usage!
 
 ## Included Dependencies
 
