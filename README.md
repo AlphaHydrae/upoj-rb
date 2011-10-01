@@ -27,20 +27,20 @@ Then require and use it:
 
   Extraction of hash options from the end of an array.
 
-        def method *args
-	  options = args.extract_options!
-	end
+    def method *args
+      options = args.extract_options!
+    end
 
 * __active_support/core_ext/hash/indifferent_access__
 
   Hash that makes no difference between strings and
   symbols as keys.
 
-        h = HashWithIndifferentAccess.new 'a' => 'value a', :b => 'value b'
-	h['a']    #=> 'value a'
-	h[:a]     #=> 'value a'
-	h['b']    #=> 'value b'
-	h[:b]     #=> 'value b'
+    h = HashWithIndifferentAccess.new 'a' => 'value a', :b => 'value b'
+    h['a']    #=> 'value a'
+    h[:a]     #=> 'value a'
+    h['b']    #=> 'value b'
+    h[:b]     #=> 'value b'
 
 
 ## Copyright
