@@ -3,7 +3,27 @@ require 'paint'
 
 module Upoj
 
+  # Customized version of ruby's OptionParser.
   class Opts < OptionParser
+
+    # Hash that will be filled with the values of all options
+    # that were defined without a block.
+    #
+    # ==== Examples
+    #   opts = Upoj::Opts.new
+    #   opts.on('--option'){ # do whatever }
+    #   opts.on('-f', '--fubar')
+    #   opts.on('--value VALUE')
+    #
+    #   ARGV          #=> [ '--option', '-f', '--value', 43 ]
+    #   opts.parse!
+    #
+    #   # retrieve options in funnel by default
+    #   opts.funnel   #=> { 'fubar' => true, 'value' => 43 }
+    #
+    #   # a funnel with initial values can be given at construction
+    #   funnel = { 'foo' => false }
+    #   opts = Upoj::Opts.new :funnel => funnel
     attr_accessor :funnel
 
     def self.section_title title
@@ -38,6 +58,27 @@ module Upoj
         super(*args, &block)
       end
     end
+    def program_name
+      @program_name || File.basename($0)
+    end
+
+    def to_s
+      "#{super}#{summary_examples_section}#{@footer}"
+    end
+
+    def help!
+      self.on('-h', '--help', 'show this help and exit'){ puts self; exit 0 }
+    end
+
+    def usage!
+      self.on('-u', '--usage', 'show this help and exit'){ puts self; exit 0 }
+    end
+
+    private
+
+    def summary_program_name
+      Paint[program_name, :bold]
+    end
 
     def summary_banner_section *args
       options = args.extract_options!
@@ -57,42 +98,6 @@ module Upoj
           s << "\n#{@summary_indent}#{summary_program_name} #{example}"
         end
       end
-    end
-
-    def program_name
-      @program_name || File.basename($0)
-    end
-
-    def summary_program_name
-      Paint[program_name, :bold]
-    end
-
-    def parse_or_exit!
-      begin
-        parse!
-      rescue Exception => err
-        unless err.kind_of?(SystemExit)
-          puts
-          Kernel.warn Paint["Error: #{err.message}", :yellow]
-          puts
-          puts self
-          exit 2
-        else
-          exit err.status
-        end
-      end
-    end
-
-    def to_s
-      "#{super}#{summary_examples_section}#{@footer}"
-    end
-
-    def help!
-      self.on('-h', '--help', 'show this help and exit'){ puts self; exit 0 }
-    end
-
-    def usage!
-      self.on('-u', '--usage', 'show this help and exit'){ puts self; exit 0 }
     end
   end
 end
