@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "upoj-rb"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["AlphaHydrae"]
-  s.date = "2011-09-30"
+  s.date = "2011-10-01"
   s.description = "This contains common ruby extensions mostly taken from Rails, as well as various command-line utilities."
   s.email = "hydrae.alpha@gmail.com"
   s.extra_rdoc_files = [
@@ -29,9 +29,11 @@ Gem::Specification.new do |s|
     "lib/upoj-rb.rb",
     "lib/upoj-rb/ext.rb",
     "lib/upoj-rb/opts.rb",
+    "lib/upoj-rb/signals.rb",
     "spec/blank_spec.rb",
     "spec/ext_spec.rb",
     "spec/helper.rb",
+    "spec/signals_spec.rb",
     "upoj-rb.gemspec"
   ]
   s.homepage = "http://github.com/AlphaHydrae/upoj-rb"
@@ -44,6 +46,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<paint>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -51,6 +54,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<gemcutter>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
     else
+      s.add_dependency(%q<paint>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
@@ -59,6 +63,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rdoc>, [">= 0"])
     end
   else
+    s.add_dependency(%q<paint>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
