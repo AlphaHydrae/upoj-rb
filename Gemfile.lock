@@ -8,6 +8,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
+    paint (0.8.3)
     rake (0.9.2)
     rdoc (3.9.4)
     rspec (2.6.0)
@@ -27,6 +28,7 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   gemcutter
   jeweler (~> 1.6.4)
+  paint
   rdoc
   rspec
   shoulda
