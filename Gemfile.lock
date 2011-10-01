@@ -28,7 +28,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_support
+  active_support (>= 2)
   bundler (~> 1.0.0)
   gemcutter
   jeweler (~> 1.6.4)
