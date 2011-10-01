@@ -1,7 +1,5 @@
 # upoj-rb
 
-Ruby scripting utilities.
-
 This gem is a collection of ruby dependencies which I have found useful
 for scripting, as well as a few additions to existing classes such as
 OptionParser.
