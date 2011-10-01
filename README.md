@@ -47,7 +47,7 @@ The funnel can be given at construction with initial values.
     funnel = { 'foo' => false }
 
     # define your options
-    opts = Upoj::Opts.new
+    opts = Upoj::Opts.new :funnel => funnel
     opts.on('-f', '--fubar')
 
     # parse
