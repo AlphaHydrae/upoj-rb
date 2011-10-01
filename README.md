@@ -21,6 +21,28 @@ Then require and use it:
     require 'upoj-rb'
     puts Upoj::VERSION
 
+## Included Dependencies
+
+* __active_support/core_ext/array/extract_options__
+
+  Extraction of hash options from the end of an array.
+
+        def method *args
+	  options = args.extract_options!
+	end
+
+* __active_support/core_ext/hash/indifferent_access__
+
+  Hash that makes no difference between strings and
+  symbols as keys.
+
+        h = HashWithIndifferentAccess.new 'a' => 'value a', :b => 'value b'
+	h['a']    #=> 'value a'
+	h[:a]     #=> 'value a'
+	h['b']    #=> 'value b'
+	h[:b]     #=> 'value b'
+
+
 ## Copyright
 
 Copyright (c) 2011 AlphaHydrae. See LICENSE.txt for
