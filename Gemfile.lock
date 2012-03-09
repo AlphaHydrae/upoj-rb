@@ -7,6 +7,7 @@ GEM
     diff-lcs (1.1.3)
     gemcutter (0.7.0)
     git (1.2.5)
+    hashr (0.0.19)
     jeweler (1.6.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
@@ -23,16 +24,19 @@ GEM
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
     shoulda (2.11.3)
+    travis-lint (1.3.0)
+      hashr (>= 0.0.19)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   active_support (>= 2)
-  bundler (~> 1.0.0)
+  bundler
   gemcutter
   jeweler (~> 1.6.4)
   paint
   rdoc
   rspec
   shoulda
+  travis-lint (~> 1.3.0)
