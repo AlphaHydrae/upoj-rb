@@ -32,22 +32,27 @@ RSpec::Core::RakeTask.new do |t|
   # Put spec opts in a file named .rspec in root
 end
 
-#require 'rcov/rcovtask'
-#Rcov::RcovTask.new do |test|
-#  test.libs << 'test'
-#  test.pattern = 'test/**/test_*.rb'
-#  test.verbose = true
-#  test.rcov_opts << '--exclude "gems/*"'
-#end
-
 task :default => :spec
 
-require 'rdoc/task'
-RDoc::Task.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+desc "Generate documentation"
+task :doc => ['doc:generate']
+namespace :doc do
+  project_root = File.dirname __FILE__
+  doc_destination = File.join project_root, 'doc'
 
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "upoj-rb #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+  begin
+    require 'yard'
+    require 'yard/rake/yardoc_task'
+
+    YARD::Rake::YardocTask.new(:generate) do |yt|
+      yt.files   = Dir.glob(File.join(project_root, 'lib', '**', '*.rb')) + 
+                   [ File.join(project_root, 'README.md') ]
+      yt.options = ['--output-dir', doc_destination, '--readme', 'README.md', '--private', '--protected']
+    end
+  rescue LoadError
+    desc "Generate YARD Documentation"
+    task :generate do
+      abort "Please install the YARD gem to generate rdoc."
+    end
+  end
 end
