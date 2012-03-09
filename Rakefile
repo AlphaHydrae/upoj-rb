@@ -40,7 +40,7 @@ end
 #  test.rcov_opts << '--exclude "gems/*"'
 #end
 
-task :default => :test
+task :default => :spec
 
 require 'rdoc/task'
 RDoc::Task.new do |rdoc|
