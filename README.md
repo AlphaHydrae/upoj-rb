@@ -4,6 +4,11 @@ This gem is a collection of ruby dependencies which I have found useful
 for scripting, as well as a few additions to existing classes such as
 OptionParser.
 
+Tested with <a href="https://www.relishapp.com/rspec">RSpec</a>, <a href="https://github.com/thoughtbot/shoulda">shoulda</a> and <a href="http://travis-ci.org/#!/AlphaHydrae/upoj-rb">Travis CI</a>.
+
+* master [![Build Status](https://secure.travis-ci.org/AlphaHydrae/upoj-rb.png?branch=master)](http://travis-ci.org/AlphaHydrae/upoj-rb)
+* develop [![Build Status](https://secure.travis-ci.org/AlphaHydrae/upoj-rb.png?branch=develop)](http://travis-ci.org/AlphaHydrae/upoj-rb)
+
 ## Using
 
 You can install upoj-rb on the command line:
